@@ -1,0 +1,5 @@
+const multer  = require('multer'); //Multer is a middleware for handling multipart/form-data, which is commonly used for file uploads in Node.js applications.
+const storage = multer.memoryStorage(); //creates storage using Multer's memory storage engine. This means that files will be stored in memory rather than on disk. This is useful for handling files temporarily, especially for smaller files.
+const singleUpload = multer({ storage: storage }).single('file'); //It uses the single method of Multer and passes the storage object created earlier as an option. The .single('file') part specifies that it will handle a single file upload with the field name 'file'. This means that in your form, the file input field should have the name attribute set to 'file'.
+// export
+module.exports = singleUpload;
